@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Tip Calculator"
         // Do any additional setup after loading the view, typically from a nib.
         tipControl.addTarget(self, action: #selector(ViewController.calcTip(_:)), for: UIControlEvents.valueChanged)
     }
@@ -30,6 +31,29 @@ class ViewController: UIViewController {
     @IBAction func OnTap(_ sender: Any) {
         view.endEditing(true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("view will appear")
+        // This is a good place to retrieve the default tip percentage from NSUserDefaults
+        // and use it to update the tip amount
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("view did appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("view will disappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("view did disappear")
+    }
+
     
     @IBAction func calcTip(_ sender: Any) {
         let tipPercentages = [0.15, 0.18, 0.2]
